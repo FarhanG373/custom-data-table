@@ -4,25 +4,21 @@ import { TableColumn } from "./TableColumn";
 
 const ParentComponent = () => {
   const handleEdit = (id) => {
-    // Handle edit event for the row with the given id
     console.log("Edited row with id:", id);
   };
   const handleView = (id) => {
-    // Handle edit event for the row with the given id
     console.log("View row with id:", id);
   };
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetch = async () => {
-      // Fetch data from API or any other source
       const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
       setData(res.data);
-      // console.log(res.data);
     };
     fetch();
   }, [data]);
   return (
-    <table>
+    <table border="1">
       <thead>
         <tr>
           {TableColumn({ handleEdit, handleView }).map((column, index) => (
